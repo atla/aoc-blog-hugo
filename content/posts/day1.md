@@ -12,13 +12,31 @@ readingTime = false
 hideComments = false
 +++
 
-# Day 1
-
-So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start task of "Calorie Counting". As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.
+So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start puzzle of "Calorie Counting". As all reindeers need magical energy to function we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us to an overgrown jungle.
 
 ## Part 1
 
 In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between. As an easy first task to get off the ground we have to find the elf carrying the most amount of calories (sum of all lines for a single elf) - and sent in the number.
+
+puzzle input example:
+```go {linenos=table, style=dracula}
+1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000
+```
+
+
 
 Today i didnt really abstract the file loading or build any re-use functions for the next days, plain old and simple code for day 1 goes here:
 
