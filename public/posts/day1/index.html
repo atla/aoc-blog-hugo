@@ -6,8 +6,8 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Day 1 So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start task of &amp;ldquo;Calorie Counting&amp;rdquo;. As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.
-In the first part we are confronted with a puzzle input of single numbers per line (calories) split with" />
+<meta name="description" content="So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start puzzle of &amp;ldquo;Calorie Counting&amp;rdquo;. As all reindeers need magical energy to function we have to start collecting fruits (in forms of stars that we earn on daily base by completing the exercices) to feed them our first day takes us to an overgrown jungle.
+Part 1 In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between." />
 <meta name="keywords" content="AoC2022" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://atla.github.io/aoc-blog-hugo/posts/day1/" />
@@ -47,8 +47,8 @@ In the first part we are confronted with a puzzle input of single numbers per li
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Day 1">
-<meta property="og:description" content="Day 1 So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start task of &amp;ldquo;Calorie Counting&amp;rdquo;. As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.
-In the first part we are confronted with a puzzle input of single numbers per line (calories) split with" />
+<meta property="og:description" content="So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start puzzle of &amp;ldquo;Calorie Counting&amp;rdquo;. As all reindeers need magical energy to function we have to start collecting fruits (in forms of stars that we earn on daily base by completing the exercices) to feed them our first day takes us to an overgrown jungle.
+Part 1 In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between." />
 <meta property="og:url" content="https://atla.github.io/aoc-blog-hugo/posts/day1/" />
 <meta property="og:site_name" content="Adventures in AoC" />
 
@@ -181,6 +181,8 @@ In the first part we are confronted with a puzzle input of single numbers per li
       
       #<a href="https://atla.github.io/aoc-blog-hugo/tags/aoc2022/">AoC2022</a>&nbsp;
       
+      #<a href="https://atla.github.io/aoc-blog-hugo/tags/calorie-counting/">Calorie Counting</a>&nbsp;
+      
     </span>
   
   
@@ -189,12 +191,45 @@ In the first part we are confronted with a puzzle input of single numbers per li
   
 
   <div class="post-content"><div>
-        <h1 id="day-1">Day 1<a href="#day-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p>So in day 1 (see <a href="https://adventofcode.com/2022/day/1">https://adventofcode.com/2022/day/1</a>) we are tasked with some easy to start task of &ldquo;Calorie Counting&rdquo;. As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.</p>
-<p>In the first part we are confronted with a puzzle input of single numbers per line (calories) split with</p>
-<p>Let&rsquo;s start somewhere - shall we?</p>
-<p>lets embedd some code right here:</p>
-<p>As usual we start with a the same import function again, as the file consists of comma separated stuff we are using this function to read the file into our data structures:</p>
+        <p>So in day 1 (see <a href="https://adventofcode.com/2022/day/1">https://adventofcode.com/2022/day/1</a>) we are tasked with some easy to start puzzle of &ldquo;Calorie Counting&rdquo;. As all reindeers need magical energy to function we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us to an overgrown jungle.</p>
+<h2 id="part-1">Part 1<a href="#part-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between. As an easy first task to get off the ground we have to find the elf carrying the most amount of calories (sum of all lines for a single elf) - and sent in the number.</p>
+<p>puzzle input example:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#bd93f9">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">2000</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">3000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">4000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">5000</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">6000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">7000</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">8000</span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">9000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#bd93f9">10000</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Today i didnt really abstract the file loading or build any re-use functions for the next days, plain old and simple code for day 1 goes here:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -212,294 +247,89 @@ In the first part we are confronted with a puzzle input of single numbers per li
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">binaryStringToInt</span>(binaryString <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">int64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> i, err <span style="color:#ff79c6">:=</span> strconv.<span style="color:#50fa7b">ParseInt</span>(binaryString, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">64</span>); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> i
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">readInput</span>(file <span style="color:#8be9fd">string</span>) []<span style="color:#8be9fd">string</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> data, err <span style="color:#ff79c6">:=</span> ioutil.<span style="color:#50fa7b">ReadFile</span>(file); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> data, err <span style="color:#ff79c6">:=</span> ioutil.<span style="color:#50fa7b">ReadFile</span>(<span style="color:#f1fa8c">&#34;input.txt&#34;</span>); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 </span></span><span style="display:flex;"><span>		input <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">string</span>(data)
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> strings.<span style="color:#50fa7b">Split</span>(input, <span style="color:#f1fa8c">&#34;\n&#34;</span>)
+</span></span><span style="display:flex;"><span>		elves <span style="color:#ff79c6">:=</span> strings.<span style="color:#50fa7b">Split</span>(input, <span style="color:#f1fa8c">&#34;\n\n&#34;</span>)
+</span></span><span style="display:flex;"><span>		max <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">for</span> _, elv <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> elves {
+</span></span><span style="display:flex;"><span>			current <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">for</span> _, food <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> strings.<span style="color:#50fa7b">Split</span>(elv, <span style="color:#f1fa8c">&#34;\n&#34;</span>) {
+</span></span><span style="display:flex;"><span>				f, _ <span style="color:#ff79c6">:=</span> strconv.<span style="color:#50fa7b">Atoi</span>(food)
+</span></span><span style="display:flex;"><span>				current <span style="color:#ff79c6">+=</span> f
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			max = <span style="color:#8be9fd;font-style:italic">int</span>(math.<span style="color:#50fa7b">Max</span>(<span style="color:#8be9fd;font-style:italic">float64</span>(max), <span style="color:#8be9fd;font-style:italic">float64</span>(current)))
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Elv with most calories caried is carrying:&#34;</span>, max,
+</span></span><span style="display:flex;"><span>		 <span style="color:#f1fa8c">&#34;calories.&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>
-</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="part-1">Part 1<a href="#part-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Now to the actual coding problem. This is a rather simple one to get AoC2022 started&hellip;..</p>
+</div><h2 id="part-2">Part 2<a href="#part-2" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Now as a small additionall numbers - and because the food of a single elf doesn&rsquo;t cut it - we want to know the calories of the top three carrying elves combined. So instead of finding the max value we add all elves to a slice, sort it and sum up the top three. Fair enough, code goes here:</p>
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">123
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">124
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">125
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">126
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">127
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">128
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">129
-</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">130
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;io/ioutil&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;strconv&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#f1fa8c">&#34;strings&#34;</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> pos <span style="color:#8be9fd;font-style:italic">struct</span> {
-</span></span><span style="display:flex;"><span>	x   <span style="color:#8be9fd">int</span>
-</span></span><span style="display:flex;"><span>	y   <span style="color:#8be9fd">int</span>
-</span></span><span style="display:flex;"><span>	aim <span style="color:#8be9fd">int</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;2021 Advent of Code Day 3&#34;</span>)
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;--- Part 1 ---&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	input <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">readInput</span>(<span style="color:#f1fa8c">&#34;input.txt&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> result, err <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">findCommonBits</span>(input); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
-</span></span><span style="display:flex;"><span>		r1 <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">binaryStringToInt</span>(result)
-</span></span><span style="display:flex;"><span>		r2 <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">binaryStringToInt</span>(<span style="color:#50fa7b">invertBinaryString</span>(result))
-</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Result %d \n&#34;</span>, r1<span style="color:#ff79c6">*</span>r2)
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;--- Part 2 ---&#34;</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> oxyGen <span style="color:#8be9fd">int64</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">var</span> scrubberco2 <span style="color:#8be9fd">int64</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	l <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">len</span>(input[<span style="color:#bd93f9">0</span>])
-</span></span><span style="display:flex;"><span>	in <span style="color:#ff79c6">:=</span> input
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; l; i<span style="color:#ff79c6">++</span> {
-</span></span><span style="display:flex;"><span>		zeroes, ones <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">findCommonBitInColumn</span>(in, i)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(ones) <span style="color:#ff79c6">&gt;=</span> <span style="color:#8be9fd;font-style:italic">len</span>(zeroes) {
-</span></span><span style="display:flex;"><span>			in = ones
-</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> {
-</span></span><span style="display:flex;"><span>			in = zeroes
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(in) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span> {
-</span></span><span style="display:flex;"><span>			oxyGen = <span style="color:#50fa7b">binaryStringToInt</span>(in[<span style="color:#bd93f9">0</span>])
-</span></span><span style="display:flex;"><span>			fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;--- Found oxygenGeneratorValue %d\n&#34;</span>, oxyGen)
-</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	in2 <span style="color:#ff79c6">:=</span> input
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; l; i<span style="color:#ff79c6">++</span> {
-</span></span><span style="display:flex;"><span>		zeroes, ones <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">findCommonBitInColumn</span>(in2, i)
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(ones) <span style="color:#ff79c6">&gt;=</span> <span style="color:#8be9fd;font-style:italic">len</span>(zeroes) {
-</span></span><span style="display:flex;"><span>			in2 = zeroes
-</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> {
-</span></span><span style="display:flex;"><span>			in2 = ones
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">len</span>(in2) <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">1</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			scrubberco2 = <span style="color:#50fa7b">binaryStringToInt</span>(in2[<span style="color:#bd93f9">0</span>])
-</span></span><span style="display:flex;"><span>			fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;--- Found CO2 scrubber %d\n&#34;</span>, scrubberco2)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">break</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;--- Life support rating %d\n&#34;</span>, oxyGen<span style="color:#ff79c6">*</span>scrubberco2)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Fin.&#34;</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">invertBinaryString</span>(input <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">string</span> {
-</span></span><span style="display:flex;"><span>	input = strings.<span style="color:#50fa7b">Replace</span>(input, <span style="color:#f1fa8c">&#34;1&#34;</span>, <span style="color:#f1fa8c">&#34;2&#34;</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>	input = strings.<span style="color:#50fa7b">Replace</span>(input, <span style="color:#f1fa8c">&#34;0&#34;</span>, <span style="color:#f1fa8c">&#34;1&#34;</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> strings.<span style="color:#50fa7b">Replace</span>(input, <span style="color:#f1fa8c">&#34;2&#34;</span>, <span style="color:#f1fa8c">&#34;0&#34;</span>, <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>)
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">findCommonBitInColumn</span>(input []<span style="color:#8be9fd">string</span>, column <span style="color:#8be9fd">int</span>) ([]<span style="color:#8be9fd">string</span>, []<span style="color:#8be9fd">string</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	ones, zeroes <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">string</span>{}, []<span style="color:#8be9fd">string</span>{}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; <span style="color:#8be9fd;font-style:italic">len</span>(input); i<span style="color:#ff79c6">++</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> input[i][column] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;1&#39;</span> {
-</span></span><span style="display:flex;"><span>			ones = <span style="color:#8be9fd;font-style:italic">append</span>(ones, input[i])
-</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> input[i][column] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;0&#39;</span> {
-</span></span><span style="display:flex;"><span>			zeroes = <span style="color:#8be9fd;font-style:italic">append</span>(zeroes, input[i])
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> zeroes, ones
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">findCommonBits</span>(input []<span style="color:#8be9fd">string</span>) (<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">error</span>) {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	result <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>	length <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">len</span>(input[<span style="color:#bd93f9">0</span>])
-</span></span><span style="display:flex;"><span>	rows <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">len</span>(input)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; length; i<span style="color:#ff79c6">++</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		countSum <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">for</span> _, s <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> input {
-</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">if</span> s[i] <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#39;1&#39;</span> {
-</span></span><span style="display:flex;"><span>				countSum<span style="color:#ff79c6">++</span>
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">if</span> <span style="color:#8be9fd;font-style:italic">float32</span>(countSum)<span style="color:#ff79c6">*</span><span style="color:#bd93f9">1.0</span> &gt; <span style="color:#8be9fd;font-style:italic">float32</span>(rows)<span style="color:#ff79c6">*</span><span style="color:#bd93f9">0.5</span> {
-</span></span><span style="display:flex;"><span>			result <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">&#34;1&#34;</span>
-</span></span><span style="display:flex;"><span>		} <span style="color:#ff79c6">else</span> {
-</span></span><span style="display:flex;"><span>			result <span style="color:#ff79c6">+=</span> <span style="color:#f1fa8c">&#34;0&#34;</span>
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> result, <span style="color:#ff79c6">nil</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">binaryStringToInt</span>(binaryString <span style="color:#8be9fd">string</span>) <span style="color:#8be9fd">int64</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> i, err <span style="color:#ff79c6">:=</span> strconv.<span style="color:#50fa7b">ParseInt</span>(binaryString, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">64</span>); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> i
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">-</span><span style="color:#bd93f9">1</span>
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">readInput</span>(file <span style="color:#8be9fd">string</span>) []<span style="color:#8be9fd">string</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">if</span> data, err <span style="color:#ff79c6">:=</span> ioutil.<span style="color:#50fa7b">ReadFile</span>(file); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> data, err <span style="color:#ff79c6">:=</span> ioutil.<span style="color:#50fa7b">ReadFile</span>(<span style="color:#f1fa8c">&#34;input.txt&#34;</span>); err <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">nil</span> {
 </span></span><span style="display:flex;"><span>		input <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">string</span>(data)
-</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">return</span> strings.<span style="color:#50fa7b">Split</span>(input, <span style="color:#f1fa8c">&#34;\n&#34;</span>)
+</span></span><span style="display:flex;"><span>		elves <span style="color:#ff79c6">:=</span> strings.<span style="color:#50fa7b">Split</span>(input, <span style="color:#f1fa8c">&#34;\n\n&#34;</span>)
+</span></span><span style="display:flex;"><span>		values <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{}
+</span></span><span style="display:flex;"><span>		<span style="color:#ff79c6">for</span> _, elv <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> elves {
+</span></span><span style="display:flex;"><span>			current <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">for</span> _, food <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> strings.<span style="color:#50fa7b">Split</span>(elv, <span style="color:#f1fa8c">&#34;\n&#34;</span>) {
+</span></span><span style="display:flex;"><span>				f, _ <span style="color:#ff79c6">:=</span> strconv.<span style="color:#50fa7b">Atoi</span>(food)
+</span></span><span style="display:flex;"><span>				current <span style="color:#ff79c6">+=</span> f
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			values = <span style="color:#8be9fd;font-style:italic">append</span>(values, current)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		sort.<span style="color:#50fa7b">Slice</span>(values, <span style="color:#8be9fd;font-style:italic">func</span>(i, j <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">bool</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span> values[i] &gt; values[j]
+</span></span><span style="display:flex;"><span>		})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Elv with most calories caried is carrying:&#34;</span>,
+</span></span><span style="display:flex;"><span>			<span style="color:#8be9fd;font-style:italic">func</span>(vals []<span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>				s <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">for</span> _, i <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> vals {
+</span></span><span style="display:flex;"><span>					s <span style="color:#ff79c6">+=</span> i
+</span></span><span style="display:flex;"><span>				}
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">return</span> s
+</span></span><span style="display:flex;"><span>			}(values[<span style="color:#bd93f9">0</span>:<span style="color:#bd93f9">3</span>]),
+</span></span><span style="display:flex;"><span>			<span style="color:#f1fa8c">&#34;calories.&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">nil</span>
-</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>And last but not least, of course you can find the solution also directly in the github repo.</p>
+</div><p>And last but not least, of course you can find the solution also directly in the github repo. Click here: <a href="https://github.com/atla/go-aoc-2022/blob/main/day1/main.go">https://github.com/atla/go-aoc-2022/blob/main/day1/main.go</a></p>
+<p>Finally we grab the two star (fruits!) and move on! Let&rsquo;s see what is in store for day 2 tomorrow.</p>
 
       </div></div>
 
@@ -513,12 +343,19 @@ In the first part we are confronted with a puzzle input of single numbers per li
     <div class="pagination__buttons">
         
         <span class="button previous">
-            <a href="https://atla.github.io/aoc-blog-hugo/posts/day-template/">
+            <a href="https://atla.github.io/aoc-blog-hugo/posts/starting/">
                 <span class="button__icon">←</span>
-                <span class="button__text">Day 1</span>
+                <span class="button__text">Starting</span>
             </a>
         </span>
         
+        
+        <span class="button next">
+            <a href="https://atla.github.io/aoc-blog-hugo/posts/day-template/">
+                <span class="button__text">Template Day 1</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
         
     </div>
 </div>
