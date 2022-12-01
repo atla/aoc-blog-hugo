@@ -1,5 +1,5 @@
 +++
-title = "Day 1"
+title = "Template Day 1"
 date = "2022-12-01T00:03:04+01:00"
 author = "atla"
 authorTwitter = "@atla_" #do not include @
@@ -10,6 +10,7 @@ description = ""
 showFullContent = false
 readingTime = false
 hideComments = false
+draft = true
 +++
 
 # TEMPLATE

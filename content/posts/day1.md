@@ -16,170 +16,66 @@ hideComments = false
 
 So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start task of "Calorie Counting". As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.
 
-In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between.
- 
-Let's start somewhere - shall we?
-
-lets embedd some code right here:
-
-As usual we start with a the same import function again, as the file consists of comma separated stuff we are using this function to read the file into our data structures:
-
-```go {linenos=table, style=dracula}
-func binaryStringToInt(binaryString string) int64 {
-	if i, err := strconv.ParseInt(binaryString, 2, 64); err == nil {
-		return i
-	}
-	return -1
-}
-
-func readInput(file string) []string {
-
-	if data, err := ioutil.ReadFile(file); err == nil {
-		input := string(data)
-		return strings.Split(input, "\n")
-	}
-	return nil
-}
-
-```
-
 ## Part 1
 
-Now to the actual coding problem. This is a rather simple one to get AoC2022 started.....
+In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between. As an easy first task to get off the ground we have to find the elf carrying the most amount of calories (sum of all lines for a single elf) - and sent in the number.
+
+Today i didnt really abstract the file loading or build any re-use functions for the next days, plain old and simple code for day 1 goes here:
+
+```go {linenos=table, style=dracula}
+if data, err := ioutil.ReadFile("input.txt"); err == nil {
+		input := string(data)
+		elves := strings.Split(input, "\n\n")
+		max := -1
+		for _, elv := range elves {
+			current := 0
+			for _, food := range strings.Split(elv, "\n") {
+				f, _ := strconv.Atoi(food)
+				current += f
+			}
+			max = int(math.Max(float64(max), float64(current)))
+		}
+
+		fmt.Println("Elv with most calories caried is carrying:", max,
+		 "calories.")
+	}
+```
+
+## Part 2
+
+Now as a small additionall numbers - and because the food of a single elf doesn't cut it - we want to know the calories of the top three carrying elves combined. So instead of finding the max value we add all elves to a slice, sort it and sum up the top three. Fair enough, code goes here:
 
 
 ```go {linenos=table, style=dracula}
-package main
-
-import (
-	"fmt"
-	"io/ioutil"
-	"strconv"
-	"strings"
-)
-
-type pos struct {
-	x   int
-	y   int
-	aim int
-}
-
-func main() {
-	fmt.Println("2021 Advent of Code Day 3")
-	fmt.Println("--- Part 1 ---")
-
-	input := readInput("input.txt")
-
-	if result, err := findCommonBits(input); err == nil {
-		r1 := binaryStringToInt(result)
-		r2 := binaryStringToInt(invertBinaryString(result))
-		fmt.Printf("Result %d \n", r1*r2)
-	}
-
-	fmt.Println("--- Part 2 ---")
-	var oxyGen int64
-	var scrubberco2 int64
-
-	l := len(input[0])
-	in := input
-	for i := 0; i < l; i++ {
-		zeroes, ones := findCommonBitInColumn(in, i)
-
-		if len(ones) >= len(zeroes) {
-			in = ones
-		} else {
-			in = zeroes
-		}
-		if len(in) == 1 {
-			oxyGen = binaryStringToInt(in[0])
-			fmt.Printf("--- Found oxygenGeneratorValue %d\n", oxyGen)
-			break
-		}
-	}
-
-	in2 := input
-	for i := 0; i < l; i++ {
-		zeroes, ones := findCommonBitInColumn(in2, i)
-		if len(ones) >= len(zeroes) {
-			in2 = zeroes
-		} else {
-			in2 = ones
-		}
-		if len(in2) == 1 {
-
-			scrubberco2 = binaryStringToInt(in2[0])
-			fmt.Printf("--- Found CO2 scrubber %d\n", scrubberco2)
-
-			break
-		}
-	}
-	fmt.Printf("--- Life support rating %d\n", oxyGen*scrubberco2)
-
-	fmt.Println("Fin.")
-
-}
-
-func invertBinaryString(input string) string {
-	input = strings.Replace(input, "1", "2", -1)
-	input = strings.Replace(input, "0", "1", -1)
-	return strings.Replace(input, "2", "0", -1)
-}
-func findCommonBitInColumn(input []string, column int) ([]string, []string) {
-
-	ones, zeroes := []string{}, []string{}
-
-	for i := 0; i < len(input); i++ {
-		if input[i][column] == '1' {
-			ones = append(ones, input[i])
-		} else if input[i][column] == '0' {
-			zeroes = append(zeroes, input[i])
-
-		}
-	}
-	return zeroes, ones
-}
-
-func findCommonBits(input []string) (string, error) {
-
-	result := ""
-	length := len(input[0])
-	rows := len(input)
-
-	for i := 0; i < length; i++ {
-
-		countSum := 0
-
-		for _, s := range input {
-			if s[i] == '1' {
-				countSum++
-			}
-		}
-
-		if float32(countSum)*1.0 > float32(rows)*0.5 {
-			result += "1"
-		} else {
-			result += "0"
-		}
-	}
-	return result, nil
-}
-
-func binaryStringToInt(binaryString string) int64 {
-	if i, err := strconv.ParseInt(binaryString, 2, 64); err == nil {
-		return i
-	}
-	return -1
-}
-
-func readInput(file string) []string {
-
-	if data, err := ioutil.ReadFile(file); err == nil {
+if data, err := ioutil.ReadFile("input.txt"); err == nil {
 		input := string(data)
-		return strings.Split(input, "\n")
+		elves := strings.Split(input, "\n\n")
+		values := []int{}
+		for _, elv := range elves {
+			current := 0
+			for _, food := range strings.Split(elv, "\n") {
+				f, _ := strconv.Atoi(food)
+				current += f
+			}
+			values = append(values, current)
+		}
+		sort.Slice(values, func(i, j int) bool {
+			return values[i] > values[j]
+		})
+
+		fmt.Println("Elv with most calories caried is carrying:",
+			func(vals []int) int {
+				s := 0
+				for _, i := range vals {
+					s += i
+				}
+				return s
+			}(values[0:3]),
+			"calories.")
 	}
-	return nil
-}
 
 ```
 
-And last but not least, of course you can find the solution also directly in the github repo.
+And last but not least, of course you can find the solution also directly in the github repo. Click here: [https://github.com/atla/go-aoc-2022/blob/main/day1/main.go](https://github.com/atla/go-aoc-2022/blob/main/day1/main.go)
+
+Finally we grab the two star (fruits!) and move on! Let's see what is in store for day 2 tomorrow.
