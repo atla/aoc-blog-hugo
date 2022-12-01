@@ -16,8 +16,8 @@ hideComments = false
 
 So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start task of "Calorie Counting". As all reindeers need magical energy to function and we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us in an overgrown jungle.
 
-In the first part we are confronted with a puzzle input of single numbers per line (calories) split with
-
+In the first part we are confronted with a puzzle input of single numbers per line (calories) split in multiple lines (all calories carried by a single elf) with empty newlines in between.
+ 
 Let's start somewhere - shall we?
 
 lets embedd some code right here:
