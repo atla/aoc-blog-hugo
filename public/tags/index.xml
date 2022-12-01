@@ -2,18 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Adventures in AoC</title>
-    <link>/tags/</link>
+    <link>https://atla.github.io/aoc-blog-hugo/tags/</link>
     <description>Recent content in Tags on Adventures in AoC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Dec 2022 00:03:04 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 00:03:04 +0100</lastBuildDate><atom:link href="https://atla.github.io/aoc-blog-hugo/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AoC2022</title>
-      <link>/tags/aoc2022/</link>
+      <link>https://atla.github.io/aoc-blog-hugo/tags/aoc2022/</link>
       <pubDate>Thu, 01 Dec 2022 00:03:04 +0100</pubDate>
       
-      <guid>/tags/aoc2022/</guid>
+      <guid>https://atla.github.io/aoc-blog-hugo/tags/aoc2022/</guid>
       <description></description>
+      <content></content>
     </item>
     
   </channel>
