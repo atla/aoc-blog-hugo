@@ -66,31 +66,31 @@ Now as a small additionall numbers - and because the food of a single elf doesn'
 
 ```go {linenos=table, style=dracula}
 if data, err := ioutil.ReadFile("input.txt"); err == nil {
-		input := string(data)
-		elves := strings.Split(input, "\n\n")
-		values := []int{}
-		for _, elv := range elves {
-			current := 0
-			for _, food := range strings.Split(elv, "\n") {
-				f, _ := strconv.Atoi(food)
-				current += f
-			}
-			values = append(values, current)
+	input := string(data)
+	elves := strings.Split(input, "\n\n")
+	values := []int{}
+	for _, elv := range elves {
+		current := 0
+		for _, food := range strings.Split(elv, "\n") {
+			f, _ := strconv.Atoi(food)
+			current += f
 		}
-		sort.Slice(values, func(i, j int) bool {
-			return values[i] > values[j]
-		})
-
-		fmt.Println("Elv with most calories caried is carrying:",
-			func(vals []int) int {
-				s := 0
-				for _, i := range vals {
-					s += i
-				}
-				return s
-			}(values[0:3]),
-			"calories.")
+		values = append(values, current)
 	}
+	sort.Slice(values, func(i, j int) bool {
+		return values[i] > values[j]
+	})
+
+	fmt.Println("Elv with most calories caried is carrying:",
+		func(vals []int) int {
+			s := 0
+			for _, i := range vals {
+				s += i
+			}
+			return s
+		}(values[0:3]),
+		"calories.")
+}
 
 ```
 
