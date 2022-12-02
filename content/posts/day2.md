@@ -1,6 +1,6 @@
 +++
 title = "Day 2 - Rock Paper Scissors"
-date = "2022-12-01T00:03:04+01:00"
+date = "2022-12-02T00:03:04+01:00"
 author = "atla"
 authorTwitter = "@atla_" #do not include @
 cover = ""

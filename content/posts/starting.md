@@ -1,6 +1,6 @@
 ---
 title: "Starting"
-date: 2022-12-02T00:04:54+01:00
+date: 2022-11-30T00:04:54+01:00
 draft: false
 ---
 
