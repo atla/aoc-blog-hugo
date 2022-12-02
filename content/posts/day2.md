@@ -46,7 +46,7 @@ if data, err := ioutil.ReadFile("input.txt"); err == nil {
 
 ## Part 2
 
-So part 2 spices things up - at least a little bit - actually in part 1 the elf giving you instructions about the puzzle input didnt tell you what the second column (X,Y,Z) was for. It was actually not your hand gesture but the outcome of the road where X is lose, Y is draw and Z is a win. Given that our task is basically to transform the input we get before we use it to run it with the same code as above.
+So part 2 spices things up - at least a little bit - actually in part 1 the elf giving you instructions about the puzzle input didn't tell you what the second column (X,Y,Z) was for. It was actually not your hand gesture but the outcome of the round where X is lose, Y is draw and Z is a win. Given that our task is basically to transform the input we get before we use it to run it with the same code as above.
 
 So all that is left is defining a second lookup table and passing that one in before passing it to the lookup table from part 1.
 
