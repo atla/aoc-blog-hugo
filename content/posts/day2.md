@@ -1,5 +1,5 @@
 +++
-title = "Day 1 - Calorie Counting"
+title = "Day 2 - Rock Paper Scissors"
 date = "2022-12-01T00:03:04+01:00"
 author = "atla"
 authorTwitter = "@atla_" #do not include @
@@ -10,9 +10,15 @@ description = ""
 showFullContent = false
 readingTime = false
 hideComments = false
+draft = true
 +++
 
-So in day 1 (see https://adventofcode.com/2022/day/1) we are tasked with some easy to start puzzle of "Calorie Counting". As all reindeers need magical energy to function we have to start collecting fruits (in forms of stars that we earn on  daily base by completing the exercices) to feed them our first day takes us to an overgrown jungle.
+On day 2 (see https://adventofcode.com/2022/day/2) we are tasked helping the elves decides who gets to sleep next to the snack store. And to do that the elves start playing the classic game of Rock Paper Scissors - the winner gets to tent up close to the snacks!
+
+And as a single round is not sufficient enough they actually play multiple rounds. To win here we need a clever strategy guide. Of course it happens that this strategy guide is your puzzle input! 
+
+See an example puzzle input below:
+
 
 ## Part 1
 
@@ -20,20 +26,9 @@ In the first part we are confronted with a puzzle input of single numbers per li
 
 puzzle input example:
 ```go {linenos=table, style=dracula}
-1000
-2000
-3000
-
-4000
-
-5000
-6000
-
-7000
-8000
-9000
-
-10000
+A Y
+B X
+C Z
 ```
 
 
