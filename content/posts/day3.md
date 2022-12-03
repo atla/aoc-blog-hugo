@@ -1,5 +1,5 @@
 +++
-title = "Day 1 - Rucksack Reorganization"
+title = "Day 3 - Rucksack Reorganization"
 date = "2022-12-03T00:03:04+01:00"
 author = "atla"
 authorTwitter = "@atla_" #do not include @
